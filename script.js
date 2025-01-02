@@ -17,9 +17,14 @@ function updateButton() {
   toggle.textContent = video.paused ? '►' : '❚ ❚';
 }
 
-// Handle Volume and Playback Speed
-function handleRangeUpdate() {
-  video[this.name] = this.value;
+// Handle Volume Change
+function handleVolumeUpdate() {
+  video.volume = parseFloat(volumeSlider.value);
+}
+
+// Handle Playback Speed Change
+function handleSpeedUpdate() {
+  video.playbackRate = parseFloat(speedSlider.value);
 }
 
 // Skip Video
@@ -47,8 +52,8 @@ video.addEventListener('timeupdate', handleProgress);
 
 toggle.addEventListener('click', togglePlay);
 
-volumeSlider.addEventListener('input', handleRangeUpdate);
-speedSlider.addEventListener('input', handleRangeUpdate);
+volumeSlider.addEventListener('input', handleVolumeUpdate);
+speedSlider.addEventListener('input', handleSpeedUpdate);
 
 skipButtons.forEach(button => button.addEventListener('click', skip));
 progress.addEventListener('click', scrub);
