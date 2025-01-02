@@ -24,7 +24,8 @@ function handleVolumeUpdate() {
 
 // Handle Playback Speed Change
 function handleSpeedUpdate() {
-  video.playbackRate = parseFloat(speedSlider.value);
+  video.playbackRate = parseFloat(speedSlider.value); // Ensure value is parsed as float
+  console.log(`Playback Speed: ${video.playbackRate}`);
 }
 
 // Skip Video
